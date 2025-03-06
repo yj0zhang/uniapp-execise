@@ -218,4 +218,11 @@ function throttle(func, wait, options) {
   });
 }
 
-export { debounce, throttle };
+function measureTextWidth(text, font = "16px sans-serif") {
+  const canvas = document.createElement("canvas");
+  const getTextLineHeightCtx = canvas.getContext("2d");
+  getTextLineHeightCtx.font = font;
+  return getTextLineHeightCtx.measureText(text).width;
+}
+
+export { debounce, throttle, measureTextWidth };
